@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Target,
   Sparkles,
@@ -412,26 +413,29 @@ function Nav() {
         className="hidden md:flex items-center gap-8 text-sm"
         style={{ color: C.textDim, fontFamily: "Inter" }}
       >
-        {["Story", "Roadmap", "Login"].map((item) => (
+        {["Story", "Roadmap"].map((item) => (
           <a key={item} href="#" className="hover:text-white transition-colors">
             {item}
           </a>
         ))}
-        <a
-          href="#"
+        <Link to="/login" className="hover:text-white transition-colors">
+          Login
+        </Link>
+        <Link
+          to="/register"
           className="px-4 py-2 rounded text-sm font-medium"
           style={{ color: C.bg, background: C.accent }}
         >
           Register
-        </a>
+        </Link>
       </div>
-      <a
-        href="#"
+      <Link
+        to="/register"
         className="md:hidden text-xs px-3 py-1.5 rounded"
         style={{ color: C.bg, background: C.accent }}
       >
         Register
-      </a>
+      </Link>
     </nav>
   );
 }
@@ -692,6 +696,7 @@ function Roadmap() {
                   {c.desc}
                 </p>
               </div>
+
             </Reveal>
           ))}
         </div>
